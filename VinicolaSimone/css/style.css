@@ -103,6 +103,9 @@ body {
   transform: scaleY(0);
   transform-origin: top;
 }
+.header .search-form.active {
+  transform: scaleY(1);
+}
 .header .search-form input {
   height: 100%;
   width: 100%;
@@ -123,11 +126,14 @@ body {
 .header .cart-items-container {
   position: absolute;
   top: 100%;
-  right: 0;
+  right: -100%;
   height: calc(100vh - 9.5rem);
   width: 35rem;
   background: var(--body-color);
   padding: 0 1.5rem;
+}
+.header .cart-items-container.active {
+  right: 0;
 }
 .header .cart-items-container .cart-item {
   position: relative;
@@ -159,4 +165,94 @@ body {
 .header .cart-items-container .cart-item .content .preco {
   font-size: 1rem;
   color: var(--base-color);
+}
+
+.btn {
+  display: inline-flex;
+  height: 3rem;
+  color: white;
+  background: var(--base-color);
+  padding: 0 2rem;
+  border-radius: 0.25rem;
+  align-items: center;
+  font-size: 1.2rem;
+}
+.btn:hover {
+  background: var(--base-color-alt);
+  font-size: 1.25rem;
+}
+
+.header .cart-items-container .btn {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+
+@media (max-width: 1024px) {
+  html {
+    font-size: 85%;
+  }
+  .header {
+    padding: 1.5rem 2rem;
+  }
+}
+@media (max-width: 767px) {
+  html {
+    font-size: 55%;
+  }
+  .header {
+    padding: 1.5rem 2rem;
+  }
+  #menu-btn {
+    display: inline-block;
+  }
+  .header .navbar {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background: var(--body-color);
+    width: 30rem;
+    height: calc(100vh - 9.5rem);
+  }
+  .header .navbar.active {
+    right: 0;
+  }
+  .header .navbar a {
+    display: block;
+    margin: 1.5rem;
+    padding: 0.5rem;
+    font-size: 2rem;
+  }
+  .header .search-form {
+    position: absolute;
+    top: 115%;
+    right: 0;
+    background: var(--body-color);
+    width: 90%;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+}
+@media (max-width: 280px) {
+  html {
+    font-size: 50%;
+  }
+  .header {
+    padding: 1.5rem 2rem;
+  }
+  .header .search-form {
+    position: absolute;
+    top: 115%;
+    right: 0;
+    background: var(--body-color);
+    width: 95%;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+    transform: scaleY(0);
+    transform-origin: top;
+  }
 }
