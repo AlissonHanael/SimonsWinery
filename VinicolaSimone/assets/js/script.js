@@ -20,8 +20,25 @@ document.querySelector('#search-btn').onclick = () => {
   navbar.classList.remove('active')
   cartItem.classList.remove('active')
 }
+
+let header = document.querySelector('.header')
+let headerHeight = header.offsetHeight
+
+function changeHeaderWhenScroll() {
+  if (window.scrollY >= headerHeight) {
+    // scroll é maior que a altura do header
+    header.classList.add('scroll')
+  } else {
+    // menor que a altura do header
+    header.classList.remove('scroll')
+  }
+}
+
 window.onscroll = () => {
   navbar.classList.remove('active')
   cartItem.classList.remove('active')
   searchForm.classList.remove('active')
 }
+window.addEventListener('scroll', function () {
+  changeHeaderWhenScroll()
+})

@@ -13,6 +13,8 @@
   --body-color: hsl(240, 50%, 1%);
   --bg-color: hsl(240, 16%, 9%);
   --border: 0.1rem solid hsl(var(--hue) 100% 100%);
+  --scroll-color: hsl(280, 100%, 90%);
+  --scroll-color-alt: hsl(281, 100%, 95%);
   /*Fontes*/
   --title-font-size: 1.875rem;
   --subtitle-font-size: 1rem;
@@ -36,7 +38,7 @@ html {
   scroll-behavior: smooth;
 }
 html::-webkit-scrollbar {
-  width: 0.8rem;
+  width: 0.5rem;
 }
 html::-webkit-scrollbar-track {
   background: transparent;
@@ -48,11 +50,35 @@ html::-webkit-scrollbar-thumb {
 body {
   background: var(--body-color);
 }
-
 section {
   padding: 2rem 7%;
 }
+.divider-1 {
+  height: 1px;
+  background: linear-gradient(270deg, rgb(51, 51, 51), rgb(89, 89, 89));
+}
+.divider-2 {
+  height: 1px;
+  background: linear-gradient(270deg, rgb(89, 89, 89), rgb(51, 51, 51));
+}
+/*------------------btn----------------------------------------------*/
 
+.btn {
+  display: inline-flex;
+  height: 3rem;
+  color: white;
+  background: var(--base-color);
+  padding: 0 2rem;
+  border-radius: 0.25rem;
+  align-items: center;
+  font-size: 1.2rem;
+}
+.btn:hover {
+  background: var(--base-color-alt);
+  font-size: 1.25rem;
+}
+
+/*------------------heading----------------------------------------------*/
 .heading {
   text-align: center;
   color: #fff;
@@ -64,33 +90,65 @@ section {
   color: var(--base-color-alt);
   text-transform: uppercase;
 }
-
+/*------------------header----------------------------------------------*/
 .header {
   background: var(--header-color);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1.5rem 7%;
-  border-bottom: var(--border);
+
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
+  transition: 0.5s;
+}
+.header.scroll {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 7%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: 1.25s;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 5px 15px 0 rgb(0, 0, 0, 0.37);
 }
 
 .header .logo {
   font-size: var(--title-font-size);
   color: var(--title-color);
 }
+.header.scroll .logo {
+  font-size: var(--title-font-size);
+  color: var(--text-color-light);
+}
 .header .logo span {
   color: var(--base-color);
 }
-
+.header.scroll .logo span {
+  font-size: var(--title-font-size);
+  color: var(--scroll-color);
+}
 .header .navbar a {
   margin: 0 1rem;
   font-size: var(--subtitle-font-size);
   color: var(--text-color);
+}
+.header.scroll .navbar a {
+  color: var(--text-color-light);
 }
 
 .header .navbar a:hover {
@@ -98,14 +156,25 @@ section {
   border-bottom: 2px solid var(--base-color);
   padding-bottom: 0.5rem;
 }
+.header.scroll .navbar a:hover {
+  color: var(--scroll-color);
+  border-bottom: 2px solid var(--scroll-color);
+}
 .header .icons div {
   color: var(--base-color-alt);
   cursor: pointer;
   font-size: 1.625rem;
   margin-left: 2rem;
 }
+.header.scroll .icons div {
+  color: var(--scroll-color);
+}
+
 .header .icons div:hover {
   color: var(--base-color);
+}
+.header.scroll .icons div:hover {
+  color: var(--scroll-color-alt);
 }
 #menu-btn {
   display: none;
@@ -188,27 +257,12 @@ section {
   color: var(--base-color);
 }
 
-.btn {
-  display: inline-flex;
-  height: 3rem;
-  color: white;
-  background: var(--base-color);
-  padding: 0 2rem;
-  border-radius: 0.25rem;
-  align-items: center;
-  font-size: 1.2rem;
-}
-.btn:hover {
-  background: var(--base-color-alt);
-  font-size: 1.25rem;
-}
-
 .header .cart-items-container .btn {
   width: 100%;
   text-align: center;
   justify-content: center;
 }
-
+/*------------------inicio----------------------------------------------*/
 .home {
   display: flex;
   min-height: 100vh;
@@ -232,6 +286,7 @@ section {
   padding: 1rem 0;
   color: #eee;
 }
+/*------------------sobre----------------------------------------------*/
 .about .row {
   display: flex;
   align-items: center;
@@ -259,12 +314,51 @@ section {
   padding: 1rem 0;
   line-height: 1.8rem;
 }
-
+/*------------------ofertas----------------------------------------------*/
+.offers .box-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.offers .box-container .box {
+  padding: 3rem;
+  text-align: center;
+  border: var(--border);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.offers .box-container .box .btn {
+  margin-top: auto;
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
+.offers .box-container .box img {
+  height: 20rem;
+}
+.offers .box-container .box h3 {
+  color: var(--text-color-light);
+  font-size: 2rem;
+  padding: 1rem 0;
+}
+.offers .box-container .box .preco {
+  color: var(--text-color-light);
+  font-size: 2.5rem;
+  padding: 0.5rem 0;
+}
+.offers .box-container .box .preco span {
+  color: var(--text-color-light);
+  font-size: 1.5rem;
+  text-decoration: line-through;
+}
 @media (max-width: 1024px) {
   html {
     font-size: 85%;
   }
   .header {
+    padding: 1.5rem 2rem;
+  }
+  .header.scroll {
     padding: 1.5rem 2rem;
   }
   section {
@@ -318,6 +412,9 @@ section {
   }
   .header .navbar.active {
     right: 0;
+  }
+  .header .navbar.active a {
+    color: var(--text-color);
   }
   .header .navbar a {
     display: block;
