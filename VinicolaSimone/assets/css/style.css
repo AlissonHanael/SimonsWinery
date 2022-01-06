@@ -15,9 +15,12 @@
   --border: 0.1rem solid hsl(var(--hue) 100% 100%);
   --scroll-color: hsl(280, 100%, 90%);
   --scroll-color-alt: hsl(281, 100%, 95%);
+  --border-blur: 1px solid rgba(255, 255, 255, 0.18);
   /*Fontes*/
   --title-font-size: 1.875rem;
   --subtitle-font-size: 1rem;
+  /*sombra*/
+  --shadow: 0 5px 15px 0 rgb(0, 0, 0, 0.37);
 }
 
 * {
@@ -123,7 +126,7 @@ section {
   transition: 1.25s;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: var(--border-blur);
   box-shadow: 0 5px 15px 0 rgb(0, 0, 0, 0.37);
 }
 
@@ -321,20 +324,20 @@ section {
   gap: 1.5rem;
 }
 .offers .box-container .box {
+  justify-content: center;
   padding: 3rem;
   text-align: center;
-  border: var(--border);
+  border: var(--border-blur);
   border-radius: 20px;
   display: flex;
   flex-direction: column;
 }
 .offers .box-container .box .btn {
-  margin-top: auto;
-  margin-bottom: 0;
+  justify-content: center;
   text-transform: uppercase;
 }
-.offers .box-container .box img {
-  height: 20rem;
+.offers .box-container .box .image {
+  height: 35rem;
 }
 .offers .box-container .box h3 {
   color: var(--text-color-light);
@@ -390,6 +393,11 @@ section {
     color: #ccc;
     padding: 1rem 0;
     line-height: 1.8rem;
+  }
+  .offers .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
   }
 }
 @media (max-width: 767px) {
@@ -455,6 +463,31 @@ section {
     border-radius: 0.25rem;
     align-items: center;
     font-size: 2rem;
+  }
+  .offers .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
+  }
+  .offers .box-container .box {
+    padding: 3rem;
+    text-align: center;
+    border: var(--border);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  .offers .box-container .box {
+    align-items: center;
+  }
+  .offers .box-container .box .image {
+    height: 30rem;
+  }
+  .offers .box-container .box .btn {
+    justify-content: center;
+    width: 70%;
+    height: 5rem;
+    font-size: 1.5rem;
   }
 }
 @media (max-width: 280px) {
