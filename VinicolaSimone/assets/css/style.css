@@ -321,39 +321,107 @@ section {
 .offers .box-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  gap: 1rem;
+}
+.offers .box-container .box{
+  background: rgba(255, 255, 255, 0.1);
 }
 .offers .box-container .box {
   justify-content: center;
-  padding: 3rem;
+  padding: 1rem;
   text-align: center;
-  border: var(--border-blur);
+  border-left: var(--border-blur);
+  border-bottom: var(--border-blur);
   border-radius: 20px;
   display: flex;
   flex-direction: column;
+  
 }
-.offers .box-container .box .btn {
+.offers .box-container .box .content{
+  opacity: 0;
+  transition: 0.8s;
+}
+.offers .box-container .box .content:hover{
+  opacity: 1;
+}
+.offers .box-container .box .content .btn {
   justify-content: center;
   text-transform: uppercase;
 }
-.offers .box-container .box .image {
+.offers .box-container .box .content .image {
   height: 35rem;
 }
-.offers .box-container .box h3 {
+.offers .box-container .box .content h3 {
   color: var(--text-color-light);
   font-size: 2rem;
   padding: 1rem 0;
 }
-.offers .box-container .box .preco {
+.offers .box-container .box .content .preco {
   color: var(--text-color-light);
   font-size: 2.5rem;
   padding: 0.5rem 0;
 }
-.offers .box-container .box .preco span {
+.offers .box-container .box  .content .preco span {
   color: var(--text-color-light);
   font-size: 1.5rem;
   text-decoration: line-through;
 }
+/*--------------------------------------------------------------produtos------------------*/
+.products .box-container{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.products  .box{
+  justify-content: center;
+  text-align: center;
+  border: var(--border-blur);
+  padding: 2rem;
+  max-width: 30rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+}
+
+.products .box .icons a{
+  height: 5rem;
+  width: 5rem;
+  line-height: 5rem;
+  font-size: 2rem;
+  border: var(--border);
+  color: var(--text-color-light);
+  margin: 0.3rem;
+}
+.products .box .icons a:hover{
+  background: var(--base-color-alt);
+}
+.products  .box .image{
+  padding: 2rem 0;
+}
+.products  .box .image img{
+  padding: 1rem 0;
+  width: 15rem;
+  margin-bottom: -3rem;
+}
+.products  .box .content h3{
+  color: var(--text-color-light);
+  font-size: 2rem;
+  padding: 1rem 0;
+}
+.products  .box .content .stars{
+  color: var(--text-color-light);
+  padding: 1rem;
+}
+.products  .box .content .stars i{
+  color: gold;
+  padding: 1rem;
+  font-size: 1.5rem;
+}
+.products  .box .content .preco{
+  color: var(--text-color-light);
+  font-size: 2.5rem;
+}
+/*----------------------------------------------------------------------------------------------------------------------responsividade-----------------------------------------*/
 @media (max-width: 1024px) {
   html {
     font-size: 85%;
@@ -399,6 +467,7 @@ section {
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     gap: 1.5rem;
   }
+
 }
 @media (max-width: 767px) {
   html {
@@ -472,7 +541,8 @@ section {
   .offers .box-container .box {
     padding: 3rem;
     text-align: center;
-    border: var(--border);
+    border-left: var(--border-blur);
+  border-bottom: var(--border-blur);
     border-radius: 20px;
     display: flex;
     flex-direction: column;
