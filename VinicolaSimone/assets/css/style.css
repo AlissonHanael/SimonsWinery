@@ -552,10 +552,13 @@ section {
 }
 .blogs .box-container .box{
   border: var(--border);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   
 }
 .blogs .box-container .box .image{
-  
+  display: flex;
   height: 25rem;
   overflow: hidden;
   width: 100%;
@@ -570,8 +573,10 @@ section {
 }
 .blogs .box-container .box .content{
   padding: 2rem;
-  background: aqua;
-  
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
 }
 .blogs .box-container .box .content .title{
   font-size: 2.5rem;
@@ -595,10 +600,56 @@ section {
 }
 
 .blogs .box-container .box .content .btn{
-  
+  justify-content: center;
+  padding: 2rem 0;
+  font-size: 1.625rem;
 }
 
+.footer{
+  background: var(--body-color);
+  text-align: center;
+}
+.footer .share{
+  padding: 1rem 0;
+}
+.footer .share a{
+  height: 5rem;
+  width: 5rem;
+  line-height: 5rem;
+  font-size: 2rem;
+  color: var(--text-color-light);
+  border: var(--border);
+  border-radius: 50%;
+  margin: .3rem;
+}
+.footer .share a:hover{
+  background: var(--base-color-alt);
+}
+.footer .links{
+  
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 2rem 0;
+  gap: 1rem ;
+}
+.footer .links a{
+  padding: 0.7rem 1rem;
+  color: var(--text-color-light);
+  border-top: var(--border);
+  border-bottom: var(--border);
+}
 
+.footer .links a:hover{
+  background: var(--title-color);
+}
+
+.footer .credit{
+  color: var(--text-color-light);
+}
+.footer .credit span{
+  color: red;
+}
 
 /*----------------------------------------------------------------------------------------------------------------------responsividade-----------------------------------------*/
 @media (max-width: 1024px) {
