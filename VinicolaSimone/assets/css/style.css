@@ -421,6 +421,185 @@ section {
   color: var(--text-color-light);
   font-size: 2.5rem;
 }
+/*------------------------------------------------------------------------------------review----------------------------*/
+.review {
+  background: var(--body-color);
+}
+.review .box-container {
+  margin-left: 0;
+  margin-right: 0;
+  display: inline-flex;
+}
+.review .box-container .box {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  margin-bottom: 0;
+  justify-content: center;
+  display: flex;
+}
+.review .box-container .box .stars{
+  color: var(--text-color-light);
+  padding: 1rem;
+}
+.review .box-container .box .stars i{
+  color: gold;
+  padding: 0.2rem;
+  font-size: 1rem;
+}
+
+.review .box-container .box blockquote {
+  justify-content: center;
+  padding: 2rem;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 0.25rem;
+  background: var(--bg-color);
+  max-width: 45rem;
+}
+.review blockquote p {
+  position: relative;
+  text-indent: 1.875rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-color-light);
+}
+
+.review blockquote p span {
+  font: 700 2.5rem serif;
+  position: absolute;
+  top: -0.5rem;
+  left: -1.875rem;
+  color: var(--text-color-light);
+}
+
+.review cite {
+  display: flex;
+  align-items: center;
+  font-style: italic;
+  font-weight: bold;
+  color: var(--text-color-light);
+}
+.review cite img {
+  width: 3rem;
+  height: 3rem;
+  object-fit: cover;
+  clip-path: circle();
+  margin-right: 0.5rem;
+}
+
+.contact .row{
+  display: flex;
+  background: var(--bg-color);
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.contact .row .map{
+  flex: 1 1 45rem;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.contact .row form{
+  flex: 1 1 45rem;
+  padding: 5rem 2rem;
+  text-align: center;
+}
+.contact .row form h3{
+  text-transform: uppercase;
+  font-size: 3rem;
+  color: var(--text-color-light);
+}
+
+.contact .row form .inputBox{
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  background: var(--body-color);
+  border: var(--border);
+  border-radius: 2rem;
+
+}
+
+.contact .row form .inputBox input{
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1.7rem;
+  color: var(--text-color-light);
+  text-transform: none;
+  background: none;
+}
+
+
+.contact .row form .inputBox input:focus{
+  width: 100%;
+  padding: 2rem;
+  font-size: 1.7rem;
+  color: #fff;
+  text-transform: none;
+  background: none;
+}
+
+.contact .row form .inputBox span{
+  color: var(--text-color-light);
+  font-size: 2rem;
+  padding-left: 2rem;
+}
+.blogs .box-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 1.5rem;
+}
+.blogs .box-container .box{
+  border: var(--border);
+  
+}
+.blogs .box-container .box .image{
+  
+  height: 25rem;
+  overflow: hidden;
+  width: 100%;
+}
+.blogs .box-container .box .image img{
+  height: 25rem;
+  overflow: hidden;
+  width: 100%;
+}
+.blogs .box-container .box .image img:hover{
+  transform: scale(1.1);
+}
+.blogs .box-container .box .content{
+  padding: 2rem;
+  background: aqua;
+  
+}
+.blogs .box-container .box .content .title{
+  font-size: 2.5rem;
+  line-height: 1.5;
+  color: var(--text-color-light);
+}
+.blogs .box-container .box .content .title:hover{
+  color: var(--base-color-second);
+}
+.blogs .box-container .box .content span{
+  color: var(--base-color-second);
+  display: block;
+  padding-top: 1rem;
+  font-size: 1rem;
+}
+.blogs .box-container .box .content p{
+  color: var(--text-color-light);
+  line-height: 1.8;
+  font-size: 1.6rem;
+  padding: 1rem 0;
+}
+
+.blogs .box-container .box .content .btn{
+  
+}
+
+
+
 /*----------------------------------------------------------------------------------------------------------------------responsividade-----------------------------------------*/
 @media (max-width: 1024px) {
   html {
@@ -467,8 +646,26 @@ section {
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     gap: 1.5rem;
   }
+  .products .box-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .products  .box{
+    justify-content: center;
+    text-align: center;
+    border: var(--border-blur);
+    padding: 2rem;
+    max-width: 30rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+  }
+  
+  
 
 }
+
 @media (max-width: 767px) {
   html {
     font-size: 55%;
@@ -535,7 +732,7 @@ section {
   }
   .offers .box-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    grid-template-columns: 1fr;
     gap: 1.5rem;
   }
   .offers .box-container .box {
@@ -557,6 +754,83 @@ section {
     justify-content: center;
     width: 70%;
     height: 5rem;
+    font-size: 1.5rem;
+  }
+  .products .box-container{
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    justify-items: center;
+  }
+  .products  .box{
+    justify-content: center;
+    text-align: center;
+    border: var(--border-blur);
+    padding: 2rem;
+    width: 30rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+  }
+  
+  .products .box .icons a{
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    font-size: 2rem;
+    border: var(--border);
+    color: var(--text-color-light);
+    margin: 0.3rem;
+  }
+  .products .box .icons a:hover{
+    background: var(--base-color-alt);
+  }
+  .products  .box .image{
+    padding: 2rem 0;
+  }
+  .products  .box .image img{
+    padding: 1rem 0;
+    width: 15rem;
+    margin-bottom: -3rem;
+  }
+  .products  .box .content h3{
+    color: var(--text-color-light);
+    font-size: 2rem;
+    padding: 1rem 0;
+  }
+  .products  .box .content .stars{
+    color: var(--text-color-light);
+    padding: 1rem;
+  }
+  .products  .box .content .stars i{
+    color: gold;
+    padding: 1rem;
+    font-size: 1.5rem;
+  }
+  .products  .box .content .preco{
+    color: var(--text-color-light);
+    font-size: 2.5rem;
+  }
+  .review .box-container {
+    margin-left: 0;
+    margin-right: 0;
+    display: inline-block;
+  }
+  .review .box-container .box blockquote {
+    justify-content: center;
+    padding: 2.5rem;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
+    border-radius: 0.25rem;
+    background: var(--bg-color);
+    max-width: 45rem;
+    margin: 0.5rem;
+  }
+  .review blockquote p {
+    position: relative;
+    text-indent: 1.875rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color-light);
     font-size: 1.5rem;
   }
 }
